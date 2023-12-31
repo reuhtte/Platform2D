@@ -11,7 +11,7 @@ var is_attacking = false
 var is_jumping = false
 var jump_count = 0
 var is_dashing = false
-#var is_crouching = false
+var is_crouching = false
 
 enum Direction {
 	LEFT = -1,
@@ -51,18 +51,15 @@ func player_animations():
 	if !Input.is_anything_pressed() and !is_attacking and !is_jumping and !is_dashing:
 		$AnimatedSprite2D.play("idle")
 		
-	#if Input.is_action_pressed("ui_down") and !is_crouching:
-	#	is_crouching = true
-	#	$AnimatedSprite2D.play("crouch_down")
-	#elif !Input.is_action_pressed("ui_down") and is_crouching:
-	#	is_crouching = false
-	#	$AnimatedSprite2D.play("crouch_up")
+	if Input.is_action_pressed("ui_down") and !is_crouching:
+		is_crouching = true
+		$AnimatedSprite2D.play("crouch_down")
+	elif Input.is_action_just_released("ui_down") and is_crouching:
+		is_crouching = false
+		$AnimatedSprite2D.play("crouch_up")
 	
-	#if is_crouching:
-	#	$AnimatedSprite2D.pause()
-	#	$AnimatedSprite2D.set_frame_and_progress(3)
-	#else:
-	#	$AnimatedSprite2D.play()
+	if is_crouching:
+		$AnimatedSprite2D.play("crouch_idle")
 		
 	if velocity.y < 0:
 		$AnimatedSprite2D.play("jump")

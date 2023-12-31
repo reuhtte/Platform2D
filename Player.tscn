@@ -168,6 +168,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("17_5ip2s")
+}],
+"loop": true,
+"name": &"crouch_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_5ip2s")
 }, {
 "duration": 1.0,
 "texture": ExtResource("18_qw3fs")
@@ -529,8 +537,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4u45e")
-animation = &"idle"
-frame_progress = 0.507916
+animation = &"crouch_idle"
+frame_progress = 0.429612
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
