@@ -83,8 +83,7 @@ func player_animations():
 func _physics_process(delta):
 	# vertical movement velocity (down)
 	velocity.y += gravity * delta
-	
-	print("is_attacking ", is_attacking)
+
 	# horizontal movement processing (left, right)
 	horizontal_movement()
 	
@@ -131,7 +130,6 @@ func _input(event):
 		$AnimatedSprite2D.play("dash")
 
 func _on_animated_sprite_2d_animation_finished():
-	print("animation ", $AnimatedSprite2D.animation)
 	if $AnimatedSprite2D.animation == "attack" or $AnimatedSprite2D.animation == "dash_attack":
 		is_attacking = false
 	if $AnimatedSprite2D.animation == "dash" or $AnimatedSprite2D.animation == "dash_attack":
