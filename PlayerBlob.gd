@@ -32,7 +32,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 		
-	if (Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")) and !is_jumping and !is_falling and !is_falling:
+	if (Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")) and !is_jumping and !is_falling and !is_landing:
 		$AnimatedSprite2D.play("run")
 		
 	if !Input.is_anything_pressed() and !is_jumping and !is_falling:

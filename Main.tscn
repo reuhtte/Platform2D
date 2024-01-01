@@ -1299,4 +1299,3 @@ position = Vector2(420, 197)
 
 [node name="ParchiPlayer" parent="." instance=ExtResource("3_uew1u")]
 position = Vector2(138, 221)
-scale = Vector2(2, 2)
