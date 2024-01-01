@@ -1299,3 +1299,15 @@ position = Vector2(420, 197)
 
 [node name="ParchiPlayer" parent="." instance=ExtResource("3_uew1u")]
 position = Vector2(138, 221)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ParchiPlayer"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(138, 221)
+zoom = Vector2(3, 3)
+limit_left = -80
+limit_top = -200
+limit_right = 1200
+limit_bottom = 400
+editor_draw_limits = true

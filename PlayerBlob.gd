@@ -18,6 +18,7 @@ enum Direction {
 }
 
 var player_direction = Direction.RIGHT
+	
 
 func _physics_process(delta):
 	# Add the gravity.

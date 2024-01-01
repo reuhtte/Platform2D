@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bweo1h8gsa6xx"]
+[gd_scene load_steps=6 format=3 uid="uid://bweo1h8gsa6xx"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_150wt"]
+[ext_resource type="AudioStream" uid="uid://dno4bihw6bv7q" path="res://sounds/02. Title.mp3" id="2_n3741"]
 
 [sub_resource type="Animation" id="Animation_qxrsi"]
 resource_name = "logo"
@@ -100,3 +101,7 @@ libraries = {
 "": SubResource("AnimationLibrary_kg01t")
 }
 autoplay = "logo"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_n3741")
+autoplay = true
