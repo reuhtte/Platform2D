@@ -1,17 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://4qfqeqhdrb00"]
+[gd_scene load_steps=7 format=3 uid="uid://4qfqeqhdrb00"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_1bvbj"]
-[ext_resource type="Texture2D" uid="uid://dt227nw2xft6a" path="res://sprites/Parchi/idle_1.png" id="2_trh1g"]
-[ext_resource type="Texture2D" uid="uid://bovpf7yjutkbh" path="res://sprites/Parchi/idle_2.png" id="3_enpxw"]
+[ext_resource type="Texture2D" uid="uid://dt227nw2xft6a" path="res://sprites/Parchi/idle/idle_1.png" id="2_xyxhk"]
+[ext_resource type="Texture2D" uid="uid://bovpf7yjutkbh" path="res://sprites/Parchi/idle/idle_2.png" id="3_xa531"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_27do1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_trh1g")
+"texture": ExtResource("2_xyxhk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_enpxw")
+"texture": ExtResource("3_xa531")
 }],
 "loop": true,
 "name": &"idle",
@@ -27,14 +27,25 @@ animations = [{
 radius = 12.0
 height = 26.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d454w"]
+radius = 77.7817
+
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_1bvbj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_27do1")
 animation = &"idle"
-frame_progress = 0.838073
+frame_progress = 0.0693872
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_1ocs5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_d454w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
