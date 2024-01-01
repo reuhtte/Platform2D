@@ -3,9 +3,9 @@ extends CharacterBody2D
 @export var speed = 100
 @export var dash_speed = 200
 @export var dash_attack_speed = 50
-@export var slide_speed = 150
-@export var gravity = 200
-@export var jump_height = -100
+@export var slide_speed = 120
+@export var gravity = 800
+@export var jump_height = -300
 @export var max_jumps = 2
 
 var is_attacking = false
@@ -23,15 +23,21 @@ enum Direction {
 var player_direction = Direction.RIGHT
 
 
+func reset_state():
+	is_attacking = false
+	is_dashing = false
+	is_crouching = false
+	is_sliding = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 #horizontal movement calculation
 func horizontal_movement():
-	if is_dashing and !is_attacking:
+	if is_dashing and !is_attacking and is_on_floor():
 		velocity.x = player_direction * dash_speed
-	elif is_dashing and is_attacking:
+	elif is_dashing and is_attacking and is_on_floor():
 		velocity.x = player_direction * dash_attack_speed
 	elif is_attacking and !is_dashing:
 		velocity.x = 0
@@ -66,9 +72,11 @@ func player_animations():
 		$AnimatedSprite2D.play("crouch_idle")
 		
 	if velocity.y < 0:
+		reset_state()
 		$AnimatedSprite2D.play("jump")
 		
 	if velocity.y > 0:
+		reset_state()
 		$AnimatedSprite2D.play("fall")
 		
 	if velocity.x > 0:
