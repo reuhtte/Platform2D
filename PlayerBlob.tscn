@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmeqctsoynpdw"]
+
+[ext_resource type="Script" path="res://PlayerBlob.gd" id="1_27kb7"]
+[ext_resource type="Texture2D" uid="uid://cquoxdms68e8d" path="res://sprites/Parchi/jump/7.png" id="1_as6aq"]
+[ext_resource type="Texture2D" uid="uid://dt227nw2xft6a" path="res://sprites/Parchi/idle/idle_1.png" id="1_e3xyy"]
+[ext_resource type="Texture2D" uid="uid://bovpf7yjutkbh" path="res://sprites/Parchi/idle/idle_2.png" id="2_5av1f"]
+[ext_resource type="Texture2D" uid="uid://d4in8hqvte4yh" path="res://sprites/Parchi/jump/10.png" id="4_dup3v"]
+[ext_resource type="Texture2D" uid="uid://dkkwagtoqwth2" path="res://sprites/Parchi/jump/2.png" id="8_4y0al"]
+[ext_resource type="Texture2D" uid="uid://dfq034ctyf5hr" path="res://sprites/Parchi/jump/3.png" id="9_wrsam"]
+[ext_resource type="Texture2D" uid="uid://do1se82msqwxg" path="res://sprites/Parchi/jump/4.png" id="10_jb8ec"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q77ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_as6aq")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e3xyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5av1f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4y0al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wrsam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jb8ec")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dup3v")
+}],
+"loop": false,
+"name": &"landing",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e3xyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5av1f")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_widbc"]
+size = Vector2(22, 27)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_27kb7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q77ei")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_widbc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

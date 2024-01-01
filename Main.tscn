@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bem0ovypg1ffh"]
 
-[ext_resource type="PackedScene" uid="uid://0veawi5gf1kk" path="res://Player.tscn" id="1_hrqx0"]
 [ext_resource type="Texture2D" uid="uid://cei5l4sct3nwo" path="res://sprites/oak_woods_tileset.png" id="2_yx5mi"]
 [ext_resource type="PackedScene" uid="uid://4qfqeqhdrb00" path="res://Enemy.tscn" id="3_mslnx"]
+[ext_resource type="PackedScene" uid="uid://bmeqctsoynpdw" path="res://PlayerBlob.tscn" id="3_uew1u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7huh5"]
 texture = ExtResource("2_yx5mi")
@@ -1289,9 +1289,6 @@ sources/0 = SubResource("TileSetAtlasSource_7huh5")
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_hrqx0")]
-position = Vector2(167, 276)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fsryl")
 format = 2
@@ -1299,3 +1296,7 @@ layer_0/tile_data = PackedInt32Array(1245193, 65536, 0, 1245192, 65536, 0, 12451
 
 [node name="Enemy1" parent="." instance=ExtResource("3_mslnx")]
 position = Vector2(47, 233)
+
+[node name="ParchiPlayer" parent="." instance=ExtResource("3_uew1u")]
+position = Vector2(107, 250)
+scale = Vector2(2, 2)
