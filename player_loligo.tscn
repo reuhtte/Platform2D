@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://c708ftsa3ntbk"]
+
+[ext_resource type="Texture2D" uid="uid://bxullkteb6vlc" path="res://sprites/BLUE SLIME/IDLE/1.png" id="1_l1k7a"]
+[ext_resource type="Script" path="res://player_loligo.gd" id="1_wjdds"]
+[ext_resource type="Texture2D" uid="uid://dd7d6od7yu22f" path="res://sprites/BLUE SLIME/IDLE/2.png" id="2_pndbk"]
+[ext_resource type="Texture2D" uid="uid://crpeid0x4xhf4" path="res://sprites/BLUE SLIME/IS WALKING op01/BLUE SLIME 01 SOLO LATERAL IS WALKING 1.png" id="4_x61mv"]
+[ext_resource type="Texture2D" uid="uid://da2gat30l73vn" path="res://sprites/BLUE SLIME/IS WALKING op01/BLUE SLIME 01 SOLO LATERAL IS WALKING 2.png" id="5_vpwx8"]
+[ext_resource type="Texture2D" uid="uid://h5dmgu3dr0p7" path="res://sprites/BLUE SLIME/IS WALKING op01/BLUE SLIME 01 SOLO LATERAL IS WALKING 3.png" id="6_4jqa4"]
+[ext_resource type="Texture2D" uid="uid://uh1ikm6itkgm" path="res://sprites/BLUE SLIME/IS WALKING op01/BLUE SLIME 01 SOLO LATERAL IS WALKING 4.png" id="7_27c6s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2uqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l1k7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pndbk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x61mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vpwx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4jqa4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_27c6s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8gvg"]
+size = Vector2(20, 14)
+
+[node name="PlayerLoligo" type="CharacterBody2D"]
+script = ExtResource("1_wjdds")
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -6)
+sprite_frames = SubResource("SpriteFrames_w2uqg")
+animation = &"walk"
+frame_progress = 0.539154
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_f8gvg")

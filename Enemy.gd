@@ -48,7 +48,7 @@ func move_towards_player(delta):
 	# Find the player
 	if player:
 		velocity.x = position.direction_to(player.position).x * CHASING_SPEED
-		print("position y ", position.direction_to(player.position).y)
+		#print("position y ", position.direction_to(player.position).y)
 	else:
 		is_chasing = false
 
