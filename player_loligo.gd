@@ -9,6 +9,7 @@ const SPEED = 100.0
 @export var jump_time_to_descent : float
 @export var max_jumps : int
 
+#Reference for function https://www.youtube.com/watch?v=hG9SzQxaCm8
 @onready var jump_velocity : float = ((2.0 * jump_max_height) / jump_time_to_peak) * -1
 @onready var jump_gravity : float = ((-2.0 * jump_max_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity : float = ((-2.0 * jump_max_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	# do not delete
 	# print(is_jumping, " | ", is_falling, " - ", velocity.y, " | ", jump_count, " | floor ", is_on_floor(), " - j reque ", is_jumping_requested)
 	
-	# If player is jumping, is still going up and player is not pressing the button
+	# If player is jumping, and it is still going up and player is not pressing the button
 	if is_jumping and !Input.is_action_pressed("ui_jump") and velocity.y < 0:
 		# If jump button is released and player is above min_jump_height, start falling
 		if jump_initial_position_y - position.y > jump_min_height:
