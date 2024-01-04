@@ -1297,9 +1297,8 @@ jump_min_height = 35.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.3
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-position = Vector2(138, 221)
-remote_path = NodePath("../Camera2D")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerLoligo"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fsryl")
