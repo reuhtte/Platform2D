@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr046130vyfd"]
+
+[ext_resource type="Script" path="res://levels/elements/door.gd" id="1_gx7i6"]
+[ext_resource type="PackedScene" uid="uid://ddog87qlsxgga" path="res://levels/level_01/house.tscn" id="2_i4tl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5prpo"]
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_gx7i6")
+next_scene = ExtResource("2_i4tl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5prpo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -15,11 +15,21 @@ const SPEED = 100.0
 @onready var fall_gravity : float = ((-2.0 * jump_max_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
 #state
+
+#jump
 var is_jumping_requested: bool = false
 var is_jumping : bool = false
 var is_falling : bool = true
 var jump_initial_position_y : float
 var jump_count : int = 0
+
+#door
+var door : String = "":
+	get: 
+		return door
+	set(new_value):
+		door = new_value
+
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
@@ -61,6 +71,12 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("ui_jump") and jump_count < max_jumps:
 		is_jumping_requested = true
+		
+	#enter door
+	if event.is_action_pressed("d_pad_up") and is_on_floor() and velocity.x == 0 and door:
+		print("Entrar a puerta")
+		print("Path ", door)
+		get_tree().change_scene_to_file(door)
 
 func jump():
 	jump_count += 1
