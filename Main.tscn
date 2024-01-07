@@ -1292,8 +1292,6 @@ sources/0 = SubResource("TileSetAtlasSource_7huh5")
 
 [node name="PlayerLoligo" parent="." instance=ExtResource("1_tdkmo")]
 position = Vector2(138, 221)
-jump_max_height = 70.0
-jump_min_height = 35.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.3
 

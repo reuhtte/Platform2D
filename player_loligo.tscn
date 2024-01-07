@@ -46,7 +46,6 @@ size = Vector2(20, 14)
 script = ExtResource("1_wjdds")
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.5
-max_jumps = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -6)

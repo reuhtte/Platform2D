@@ -3,11 +3,11 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
-@export var jump_max_height : float
-@export var jump_min_height : float
-@export var jump_time_to_peak : float
-@export var jump_time_to_descent : float
-@export var max_jumps : int
+@export var jump_max_height : float = 70
+@export var jump_min_height : float = 35
+@export var jump_time_to_peak : float = 0.4
+@export var jump_time_to_descent : float = 0.3
+@export var max_jumps : int = 2
 
 #Reference for function https://www.youtube.com/watch?v=hG9SzQxaCm8
 @onready var jump_velocity : float = ((2.0 * jump_max_height) / jump_time_to_peak) * -1
