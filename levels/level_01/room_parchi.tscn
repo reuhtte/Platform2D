@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://phnmope6vo3x"]
+
+[ext_resource type="PackedScene" uid="uid://be64wquuask00" path="res://scenes/tile_maps/tile_map_greyscale.tscn" id="1_08pc0"]
+[ext_resource type="PackedScene" uid="uid://c708ftsa3ntbk" path="res://player_loligo.tscn" id="2_nnlch"]
+[ext_resource type="PackedScene" uid="uid://cr046130vyfd" path="res://levels/elements/door.tscn" id="3_pwxrb"]
+
+[node name="RoomParchi" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_08pc0")]
+layer_0/tile_data = PackedInt32Array(-65535, 1, 14, -65534, 1, 14, -65533, 1, 14, -65532, 1, 14, -65531, 1, 14, -65530, 1, 14, -65529, 1, 14, -65528, 1, 14, -65527, 1, 14, -65526, 1, 14, -65525, 1, 14, -65524, 1, 14, -65523, 1, 14, -65522, 1, 14, -65521, 1, 14, -65520, 1, 14, -65519, 1, 14, -65518, 1, 14, -65517, 1, 14, -65516, 1, 14, -65515, 1, 14, -65514, 1, 14, -65513, 1, 14, -65512, 1, 14, -65511, 1, 14, -65510, 1, 14, -65509, 1, 14, -65508, 1, 14, -65507, 1, 14, -65506, 1, 14, -65505, 1, 14, -65504, 1, 14)
+
+[node name="PlayerLoligo" parent="." instance=ExtResource("2_nnlch")]
+position = Vector2(49, -36)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerLoligo"]
+zoom = Vector2(2, 2)
+
+[node name="RoomLoligo" parent="." instance=ExtResource("3_pwxrb")]
+position = Vector2(241, -60)
+scale = Vector2(2.72, 4.24)
+next_scene = 2

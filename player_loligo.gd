@@ -24,7 +24,7 @@ var jump_initial_position_y : float
 var jump_count : int = 0
 
 #door
-var door : String = "":
+var door : String:
 	get: 
 		return door
 	set(new_value):
@@ -34,7 +34,7 @@ var door : String = "":
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	
-func _process(delta):
+func _process(_delta):
 	if is_jumping_requested:
 		jump()
 		is_jumping_requested = false
